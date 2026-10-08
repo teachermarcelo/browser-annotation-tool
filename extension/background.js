@@ -1,8 +1,17 @@
 chrome.action.onClicked.addListener(async (tab) => {
   if (!tab || !tab.id || !tab.url) return;
 
-  const blocked = /^(chrome|edge|about|devtools|chrome-extension):\\/\\//i.test(tab.url);
-  if (blocked) return;
+  const blockedPrefixes = [
+    "chrome://",
+    "edge://",
+    "about:",
+    "devtools://",
+    "chrome-extension://"
+  ];
+
+  if (blockedPrefixes.some(prefix => tab.url.startsWith(prefix))) {
+    return;
+  }
 
   try {
     const data = await chrome.tabs.captureVisibleTab(tab.windowId, { format: "png" });
