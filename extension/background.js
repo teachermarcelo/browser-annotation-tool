@@ -1,0 +1,1 @@
+chrome.action.onClicked.addListener(async tab=>{if(!tab.id)return;try{const data=await chrome.tabs.captureVisibleTab(tab.windowId,{format:"png"});await chrome.tabs.sendMessage(tab.id,{type:"BROWSER_ANNOTATION_CAPTURE",data})}catch(e){console.error(e)}});
