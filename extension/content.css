@@ -1,1 +1,14 @@
-#bat-root{position:fixed;inset:0;z-index:2147483647;pointer-events:none;font-family:Arial,sans-serif}#bat-toolbar{position:fixed;top:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;align-items:center;background:#171717;color:#fff;border:1px solid #444;border-radius:12px;padding:8px;box-shadow:0 8px 30px #0008;pointer-events:auto}#bat-toolbar button,#bat-toolbar input{font:13px Arial}#bat-toolbar button{background:#292929;color:#fff;border:1px solid #444;border-radius:7px;padding:7px 9px;cursor:pointer}#bat-toolbar button.active{background:#ff315b;border-color:#ff315b}#bat-toolbar input[type=color]{width:30px;height:28px;padding:0;border:0}#bat-canvas{position:fixed;inset:0;width:100vw;height:100vh;display:none;pointer-events:auto}
+#tap-root{position:fixed;inset:0;z-index:2147483647;pointer-events:none;font-family:Inter,Arial,sans-serif}
+#tap-toolbar{position:fixed;top:16px;left:50%;transform:translateX(-50%);display:flex;gap:5px;align-items:center;flex-wrap:wrap;max-width:calc(100vw - 24px);background:#171923;color:#f8fafc;border:1px solid #3b4050;border-radius:12px;padding:8px;box-shadow:0 10px 34px #0006;pointer-events:auto;user-select:none}
+#tap-toolbar button,#tap-toolbar input{font:13px Arial,sans-serif}
+#tap-toolbar button{min-width:31px;height:32px;background:#252938;color:#f8fafc;border:1px solid #41475a;border-radius:7px;padding:5px 8px;cursor:pointer}
+#tap-toolbar button:hover{background:#363d51}
+#tap-toolbar button.active{background:#ff315b;border-color:#ff315b;color:#fff}
+#tap-toolbar .tap-brand{font-weight:800;background:#ff315b;border-color:#ff315b}
+#tap-toolbar input[type=color]{width:30px;height:30px;padding:2px;border:1px solid #41475a;border-radius:7px;background:#252938;cursor:pointer}
+#tap-toolbar input[type=range]{width:74px;cursor:pointer}
+.tap-separator{height:24px;border-left:1px solid #454b5d;margin:0 2px}
+#tap-canvas{position:fixed;inset:0;width:100vw;height:100vh;display:block;pointer-events:auto;touch-action:none;cursor:crosshair}
+#tap-canvas.tap-cursor-mode{cursor:default}
+#tap-hint{position:fixed;top:62px;left:50%;transform:translateX(-50%);padding:5px 9px;border-radius:6px;background:#171923d9;color:#e2e8f0;font-size:11px;white-space:nowrap;pointer-events:none}
+@media(max-width:700px){#tap-toolbar{left:8px;right:8px;top:8px;transform:none;justify-content:center;gap:3px;padding:6px}#tap-toolbar button{min-width:28px;padding:4px 6px}#tap-toolbar input[type=range]{width:52px}#tap-hint{top:100px;max-width:95vw;white-space:normal;text-align:center}}
