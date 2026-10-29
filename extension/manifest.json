@@ -1,9 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "Browser Annotation Tool",
-  "version": "1.0.1",
-  "description": "Capture uma página e faça anotações diretamente no navegador.",
+  "name": "Teacher Annotate Pro",
+  "version": "1.1.0",
+  "description": "Barra flutuante para desenhar, destacar e inserir anotações sobre páginas do navegador.",
   "permissions": ["activeTab", "scripting"],
-  "action": {"default_title": "Browser Annotation Tool"},
-  "background": {"service_worker": "background.js"}
+  "action": { "default_title": "Abrir Teacher Annotate Pro" },
+  "background": { "service_worker": "background.js" },
+  "commands": {
+    "toggle-annotation-toolbar": {
+      "suggested_key": { "default": "Alt+Shift+A" },
+      "description": "Ativar ou ocultar a barra de anotações"
+    }
+  }
 }
