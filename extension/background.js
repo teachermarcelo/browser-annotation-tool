@@ -1,38 +1,17 @@
-chrome.action.onClicked.addListener(async (tab) => {
-  if (!tab || !tab.id || !tab.url) return;
-
-  const blockedPrefixes = [
-    "chrome://",
-    "edge://",
-    "about:",
-    "devtools://",
-    "chrome-extension://"
-  ];
-
-  if (blockedPrefixes.some(prefix => tab.url.startsWith(prefix))) {
-    return;
-  }
-
+async function toggleAnnotator(tab) {
+  if (!tab?.id || !tab.url) return;
+  const blocked = ["chrome://", "edge://", "about:", "devtools://", "chrome-extension://", "https://chrome.google.com/webstore"];
+  if (blocked.some(prefix => tab.url.startsWith(prefix))) return;
   try {
-    const data = await chrome.tabs.captureVisibleTab(tab.windowId, { format: "png" });
-
-    await chrome.scripting.insertCSS({
-      target: { tabId: tab.id },
-      files: ["content.css"]
-    }).catch(() => {});
-
-    await chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      files: ["content.js"]
-    });
-
-    await new Promise(resolve => setTimeout(resolve, 100));
-
-    await chrome.tabs.sendMessage(tab.id, {
-      type: "BROWSER_ANNOTATION_CAPTURE",
-      data
-    });
+    await chrome.scripting.insertCSS({ target: { tabId: tab.id }, files: ["content.css"] });
+    await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ["content.js"] });
   } catch (error) {
-    console.warn("Browser Annotation Tool:", error);
+    console.warn("Teacher Annotate Pro: não foi possível ativar nesta página.", error);
   }
+}
+chrome.action.onClicked.addListener(toggleAnnotator);
+chrome.commands.onCommand.addListener(async command => {
+  if (command !== "toggle-annotation-toolbar") return;
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  await toggleAnnotator(tab);
 });

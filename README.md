@@ -1,29 +1,40 @@
-# Browser Annotation Tool
+# Teacher Annotate Pro
 
-Ferramenta para professores e apresentações: capture a tela, abra uma imagem e faça anotações.
+Extensão Chrome/Edge para professores: desenhe, destaque e insira anotações sobre páginas da web usando uma barra flutuante.
 
 ## Recursos
-- Captura de tela no navegador
-- Abrir imagens locais
 - Caneta e marca-texto
-- Setas, retângulos e círculos
-- Texto
+- Seta, linha, retângulo e círculo
+- Inserção de texto (selecione Texto e dê duplo clique na página)
+- Borracha por traço (desenhe sobre a área para apagar)
+- Cor e espessura configuráveis
 - Desfazer/refazer
-- Limpar
-- Download em PNG
-- Extensão Chrome/Edge em Manifest V3
+- Mostrar/ocultar anotações
+- Exportar a camada de anotações como PNG transparente
+- Barra arrastável e atalho Alt+Shift+A
+- Modo cursor com Esc
 
-## Site
-Abra index.html. Para captura de tela, o navegador solicitará autorização.
+## Instalar no Chrome
+1. Baixe ou clone este repositório.
+2. Abra `chrome://extensions`.
+3. Ative **Modo do desenvolvedor**.
+4. Clique em **Carregar sem compactação**.
+5. Selecione a pasta `extension`.
+6. Abra uma página web comum e clique no ícone da extensão.
 
-## Extensão
-1. Abra chrome://extensions
-2. Ative Modo do desenvolvedor
-3. Clique em Carregar sem compactação
-4. Selecione a pasta extension
-5. Abra uma página e clique no ícone da extensão.
+## Usar
+- Clique no ícone da extensão para exibir a barra.
+- Escolha uma ferramenta e desenhe sobre a página.
+- Escolha **Cursor** ou pressione **Esc** para interagir com os links da página.
+- Use **⇩** para baixar as anotações em PNG com fundo transparente.
+- Use **✕** para fechar a ferramenta.
 
-## GitHub Pages
-O index.html está pronto para publicação como site estático.
+## Limitações conhecidas
+- O Chrome bloqueia extensões em páginas internas, na Chrome Web Store e em algumas páginas protegidas.
+- O visualizador nativo de PDF pode ter limitações diferentes de páginas web comuns.
+- Esta versão anota sobre o conteúdo visível, mas ainda não grava vídeos nem inclui automaticamente o conteúdo original da página no PNG exportado.
+- O texto é inserido com duplo clique após selecionar a ferramenta Texto.
+- A borracha remove pixels da camada de anotações; não altera o site original.
 
-Projeto criado para Teacher Marcelo.
+## Privacidade
+A extensão não envia dados a servidores. As anotações existem na aba atual e são removidas quando a camada é fechada ou a página é recarregada.
